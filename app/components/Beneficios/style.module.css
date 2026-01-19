@@ -1,0 +1,231 @@
+.section {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+  color: white;
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  margin-bottom: 4rem;
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: #ef4444;
+}
+
+/* Carrossel horizontal */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 3%,
+    black 97%,
+    transparent
+  );
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2rem;
+  animation: scrollBeneficios 30s linear infinite;
+  width: max-content;
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scrollBeneficios {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.card {
+  background: linear-gradient(145deg, #151515 0%, #0d0d0d 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid #1f1f1f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 300px;
+  min-height: 280px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #dc2626, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(220, 38, 38, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  filter: invert(38%) sepia(83%) saturate(4328%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+.cardTitle {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+}
+
+.cardDesc {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Método EspecialistaPro Card */
+.metodoCard {
+  background: linear-gradient(145deg, #151515 0%, #0d0d0d 100%);
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  border: 1px solid #1f1f1f;
+  max-width: 1000px;
+  margin: 3rem auto 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.metodoCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #dc2626, transparent);
+}
+
+.metodoIconWrapper {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border-radius: 50%;
+}
+
+.metodoIcon {
+  width: 56px;
+  height: 56px;
+  filter: invert(38%) sepia(83%) saturate(4328%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+.metodoTitle {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: #ef4444;
+  margin-bottom: 1.5rem;
+}
+
+.metodoDesc {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
+
+.buttonWrapper {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaButton {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  padding: 1rem 2.5rem;
+  border: 2px solid #dc2626;
+  border-radius: 50px;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #dc2626;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #dc2626;
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.ctaButton:hover {
+  color: white;
+}
+
+.ctaButton:hover::before {
+  left: 0;
+}

@@ -1,0 +1,262 @@
+.heroSection {
+  position: relative;
+  width: 100%;
+  /* REMOVIDO o padding-top de 3rem para permitir centralização real */
+  padding: 0 1rem; 
+  min-height: 100vh; /* Ocupa a tela toda */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .heroSection {
+    padding: 0 2rem;
+  }
+}
+
+.backgroundImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bgImage {
+  object-fit: cover;
+  opacity: 0.5;
+}
+
+.backgroundOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.85) 50%,
+    rgba(20, 0, 0, 0.9) 100%
+  );
+  z-index: 1;
+}
+
+/* --- MUDANÇAS AQUI PARA CENTRALIZAR --- */
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 1400px;
+  width: 100%;
+  
+  /* Faz esse container crescer e ocupar todo o espaço vazio */
+  flex: 1; 
+  
+  display: flex;
+  flex-direction: column;
+  
+  /* Centraliza verticalmente o conteúdo interno */
+  justify-content: center; 
+  align-items: center;
+  
+  gap: 3rem;
+  /* Removido padding-bottom para não desalinhar o centro */
+  padding-bottom: 1rem; 
+}
+
+@media (min-width: 1024px) {
+  .heroContent {
+    flex-direction: row;
+    justify-content: space-between; /* Espalha horizontalmente */
+    align-items: center; /* Mantém o alinhamento vertical no centro */
+    padding-bottom: 0;
+    gap: 4rem;
+  }
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  /* Garante que não estique demais */
+  flex: 1; 
+  max-width: 600px; /* Limita a largura do texto para ficar bonito */
+}
+
+@media (min-width: 1024px) {
+  .leftContent {
+    align-items: flex-start;
+    text-align: left;
+    padding: 0;
+    max-width: 50%;
+  }
+}
+
+.logoWrapper {
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.logo {
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(220, 38, 38, 0.3));
+}
+
+.title {
+  font-family: var(--font-bebas), 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #cccccc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1rem;
+  font-weight: 300;
+  max-width: 32rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.1rem;
+  }
+}
+
+.ctaButton {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 25px rgba(220, 38, 38, 0.4);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.ctaButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 35px rgba(220, 38, 38, 0.5);
+}
+
+.ctaButton:hover::before {
+  left: 100%;
+}
+
+/* YouTube Video Container */
+.videoContainer {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+@media (min-width: 1024px) {
+  .videoContainer {
+    width: 55%;
+    max-width: none;
+  }
+}
+
+.youtubeVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 1.5rem;
+}
+
+/* Offer Banner - Marquee Effect */
+.offerBanner {
+  position: relative;
+  z-index: 20;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%); /* Força full width mesmo com padding do pai */
+  background: linear-gradient(90deg, #dc2626 0%, #b91c1c 50%, #dc2626 100%);
+  padding: 1rem 0;
+  
+  /* Garante que fique no rodapé */
+  margin-top: auto; 
+  margin-bottom: 0;
+  
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+}
+
+.marqueeWrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.marqueeContent {
+  display: flex;
+  animation: marquee 25s linear infinite;
+  white-space: nowrap;
+}
+
+.marqueeContent:hover {
+  animation-play-state: paused;
+}
+
+.marqueeItem {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 0 3rem;
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

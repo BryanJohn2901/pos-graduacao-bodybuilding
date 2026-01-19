@@ -1,0 +1,131 @@
+.section {
+  background: linear-gradient(180deg, #060a13 0%, #0a0f1a 100%);
+  padding: 4rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 5rem 2rem;
+  }
+}
+
+.title {
+  text-align: center;
+  color: white;
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: 4rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: #ef4444;
+}
+
+/* Carrossel Infinito */
+.carouselWrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 2rem 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 40s linear infinite;
+  width: max-content;
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Card do Especialista */
+.card {
+  flex-shrink: 0;
+  width: 300px;
+  height: 450px;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-radius: 1.25rem;
+  transition: border-color 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03) translateY(-10px);
+  box-shadow: 
+    0 20px 50px rgba(220, 38, 38, 0.25),
+    0 0 0 1px rgba(220, 38, 38, 0.3);
+}
+
+.card:hover::after {
+  border-color: rgba(220, 38, 38, 0.5);
+}
+
+.cardImageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardImage {
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .cardImage {
+  transform: scale(1.05);
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 340px;
+    height: 510px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    width: 380px;
+    height: 570px;
+  }
+}

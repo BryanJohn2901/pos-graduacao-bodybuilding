@@ -1,0 +1,105 @@
+.section {
+  background: linear-gradient(180deg, #0a0a0a 0%, #0f0f0f 100%);
+  color: #f3f4f6;
+  padding: 5rem 1rem;
+}
+
+.title {
+  font-family: var(--font-oswald), 'Oswald', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.highlight {
+  color: #dc2626;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: linear-gradient(145deg, #151515 0%, #0d0d0d 100%);
+  padding: 2rem 1.5rem;
+  border-radius: 1.25rem;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  min-height: 320px;
+  justify-content: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #dc2626, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.iconWrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(220, 38, 38, 0.05) 100%);
+  border-radius: 50%;
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  filter: invert(38%) sepia(83%) saturate(4328%) hue-rotate(346deg) brightness(95%) contrast(86%);
+}
+
+.description {
+  font-family: var(--font-montserrat), 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 300;
+}
