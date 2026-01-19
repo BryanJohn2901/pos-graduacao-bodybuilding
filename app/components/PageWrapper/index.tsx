@@ -20,7 +20,6 @@ const PageWrapper = ({ children }: PageWrapperProps) => {
 
     const sections = wrapperRef.current.querySelectorAll('section')
     const headings = wrapperRef.current.querySelectorAll('h1, h2, h3')
-    const cards = wrapperRef.current.querySelectorAll('[class*="card"]')
     const buttons = wrapperRef.current.querySelectorAll('button')
 
     // Animate sections on scroll
